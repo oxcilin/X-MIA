@@ -107,61 +107,9 @@ if (isset($_SESSION['id']) && isset($_SESSION['email'])) {
          </div>
       </form>
 
-      <table id="data" class="display nowrap" style="width:100%">
-        <thead>
-            <tr>
-                <th>No</th>
-                <th>Tanggal</th>
-                <th>Jam</th>
-                <th>Catatan</th>
-                <th>Aksi</th>
-            </tr>
-        </thead>
-        <tbody>
-          <?php
-
-          $no = 1;
-          $tampil = mysqli_query ($conn, "SELECT * FROM catatan ORDER BY id DESC");
-          while ($data = mysqli_fetch_array($tampil)) :
-          ?>
-            <tr>
-              <td><?= $no++ ?></td>
-              <td><?= $data['tanggal']; ?></td>
-              <td><?= $data['jam']; ?></td>
-              <td><?= $data['textarea']; ?></td>
-              <td>
-                <button id="notify" class="btn btn-warning btn-sm"><i class="fa-solid fa-pen-nib"></i></button>
-                <button id="notify" class="btn btn-danger btn-sm"><i class="fa-solid fa-trash-can"></i></button>
-              </td>
-            </tr>
-        </tbody>
-        <?php endwhile; ?>
-    </table>
-    </div>
-    </div>
-      <?php include './templates/footer.php'; ?>
+      
     </div>
     <!-- CoreUI and necessary plugins-->
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/2.3.6/js/dataTables.buttons.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
-    <script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.html5.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.print.min.js"></script>
-
-    <script>
-      $(document).ready(function() {
-          $('#data').DataTable( {
-              dom: 'Bfrtip',
-              buttons: [
-                  'excel', 'print'
-              ]
-          } );
-      } );
-    </script>
-
     <script src="./idk/coreui.bundle.min.js.download"></script>
     <script src="./idk/simplebar.min.js.download"></script>
     <script>
