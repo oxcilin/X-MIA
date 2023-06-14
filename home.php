@@ -39,8 +39,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['email'])) {
 
     <!--=============== TITLE ===============-->
     <title>
-      <?php $filename = pathinfo(__FILE__, PATHINFO_FILENAME); $filename =
-      ucwords($filename); echo $filename; ?> • Oxa
+      <?php include 'templates/name_page.php'?>
     </title>
 
     <!--=============== FONT ===============-->
@@ -52,49 +51,16 @@ if (isset($_SESSION['id']) && isset($_SESSION['email'])) {
     />
 
     <style>
-      html,
-      body {
-        font-family: "Chivo";
-      }
+      <?php include 'templates/additional.css'?> 
     </style>
 
     <body>
       <?php include 'templates/navbar.php'; ?>
-
-      <div class="container">
-        <div class="row">
-          <?php
-            $currentHour = date('G');
-            // Define the greeting based on the current hour
-            if ($currentHour >= 0 && $currentHour < 12) { 
-              $greeting = "GoodAfternoon"; } 
-              elseif ($currentHour >= 12 && $currentHour < 18) {
-                $greeting = "Good Evening"; } 
-                else { 
-                  $greeting = "Good Night"; }
-          ?>
-
-          <div id="running-text">
-            <div class="container pt-1 small font-weight-bold">
-              <div class="row align-items-center">
-                <div class="col-md-2">
-                  <h6 class="text-right font-weight-bold">
-                    <u>N E W S : </u>
-                  </h6>
-                </div>
-                <div class="col-md-10">
-                  <marquee onMouseOver="this.stop()" onMouseOut="this.start()">
-                    <?php echo $greeting; ?>, <b><?php echo $_SESSION['name']; ?></b>.
-                  </marquee>
-                </div>
-              </div>
-            </div>
-          </div>
-        <br /><br />
+      <?php include 'templates/news.php'; ?>
         
         <!-- Uang Kas 1  -->
         <div class="col-xl-3 col-md-6 mb-4">
-          <div class="card border-left-primary shadow h-100 py-2">
+          <div class="card border-left-primary shadow-lg h-100 py-2">
             <div class="card-body">
               <div class="row no-gutters align-items-center">
                 <div class="col mr-2">
@@ -108,7 +74,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['email'])) {
                   </div>
                 </div>
                 <div class="col-auto">
-                  <i class="fa-solid fa-rupiah-sign fa-2x text-gray-300"></i>
+                  <i class="fa-solid fa-piggy-bank fa-2x text-gray-300"></i>
                 </div>
               </div>
             </div>
@@ -117,7 +83,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['email'])) {
 
         <!-- Uang Kas 2  -->
         <div class="col-xl-3 col-md-6 mb-4">
-          <div class="card border-left-primary shadow h-100 py-2">
+          <div class="card border-left-primary shadow-lg h-100 py-2">
             <div class="card-body">
               <div class="row no-gutters align-items-center">
                 <div class="col mr-2">
@@ -131,7 +97,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['email'])) {
                   </div>
                 </div>
                 <div class="col-auto">
-                  <i class="fa-solid fa-rupiah-sign fa-2x text-gray-300"></i>
+                  <i class="fa-solid fa-piggy-bank fa-2x text-gray-300"></i>
                 </div>
               </div>
             </div>
@@ -140,7 +106,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['email'])) {
 
         <!-- Uang Kas 3  -->
         <div class="col-xl-3 col-md-6 mb-4">
-          <div class="card border-left-primary shadow h-100 py-2">
+          <div class="card border-left-primary shadow-lg h-100 py-2">
             <div class="card-body">
               <div class="row no-gutters align-items-center">
                 <div class="col mr-2">
@@ -154,7 +120,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['email'])) {
                   </div>
                 </div>
                 <div class="col-auto">
-                  <i class="fa-solid fa-rupiah-sign fa-2x text-gray-300"></i>
+                  <i class="fa-solid fa-piggy-bank fa-2x text-gray-300"></i>
                 </div>
               </div>
             </div>
@@ -163,7 +129,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['email'])) {
 
         <!-- Uang Kas 4  -->
         <div class="col-xl-3 col-md-6 mb-4">
-          <div class="card border-left-primary shadow h-100 py-2">
+          <div class="card border-left-primary shadow-lg h-100 py-2">
             <div class="card-body">
               <div class="row no-gutters align-items-center">
                 <div class="col mr-2">
@@ -177,7 +143,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['email'])) {
                   </div>
                 </div>
                 <div class="col-auto">
-                  <i class="fa-solid fa-rupiah-sign fa-2x text-gray-300"></i>
+                  <i class="fa-solid fa-piggy-bank fa-2x text-gray-300"></i>
                 </div>
               </div>
             </div>

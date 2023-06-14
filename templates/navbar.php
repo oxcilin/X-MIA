@@ -9,12 +9,14 @@
       echo $filenameWithoutExtension;
     ?>"
     >
+    <?php $domain = parse_url('http://' . $_SERVER['HTTP_HOST'], PHP_URL_HOST); ?>
       <img
-        src="https://getbootstrap.com/docs/5.0/assets/brand/bootstrap-logo.svg"
+        src="http://<?php echo $domain; ?>/logo.png"
         alt=""
-        width="30"
-        height="24"
+        width="40"
+        height="40"
         class="d-inline-block align-text-top"
+        style="border-radius:50%; display: block;  margin-left: auto; margin-right: auto;"
       />
     </a>
 
@@ -27,16 +29,24 @@
                   echo $filenameWithoutExtension;
                 ?>"
     >
-      <?php
+      <b>
+        <?php
             $filename = basename($_SERVER['SCRIPT_FILENAME']);
             $filenameWithoutExtension = pathinfo($filename, PATHINFO_FILENAME);
-            $capitalizedFilename = ucfirst($filenameWithoutExtension);
+            
+            // Replace hyphens with spaces
+            $filenameWithoutHyphen = str_replace("-", " ", $filenameWithoutExtension);
+            
+            // Capitalize each word
+            $capitalizedFilename = ucwords($filenameWithoutHyphen);
+            
             echo $capitalizedFilename;
         ?>
+      </b>
     </a>
 
     <button
-      class="badge navbar-toggler"
+      class="badge navbar-toggler no-outline"
       type="button"
       data-bs-toggle="offcanvas"
       data-bs-target="#staticBackdrop"
@@ -87,15 +97,39 @@
         ></button>
       </div>
       <div class="offcanvas-body">
+        <?php
+          $current_page = basename($_SERVER['REQUEST_URI']); // Mendapatkan nama halaman saat ini
+
+          function isCurrentPage($page)
+          {
+              global $current_page;
+              if ($current_page == $page) {
+                  return 'nav-link active';
+              } else {
+                  return 'nav-link';
+              }
+          }
+
+          function isCurrentDropdownPage($dropmenu_page) // Renamed the function
+          {
+              global $current_page;
+              if ($current_page == $dropmenu_page) {
+                  return 'dropdown-item active';
+              } else {
+                  return 'dropdown-item';
+              }
+          }
+        ?>
+
         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
           <figcaption class="blockquote-footer">
             <cite title="Source Title">Bendahara</cite>
           </figcaption>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="home">Home</a>
+            <a class="<?php echo isCurrentPage('home'); ?>" aria-current="page" href="home">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
+            <a class="<?php echo isCurrentPage('catatan'); ?>" href="catatan">Catatan</a>
           </li>
           <li class="nav-item dropdown">
             <a
@@ -105,19 +139,25 @@
               data-bs-toggle="dropdown"
               aria-expanded="false"
             >
-              Dropdown
+              Uang Kas
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="<?php echo isCurrentDropdownPage('pemasukan-uang-kas'); ?>" href="pemasukan-uang-kas">Pemasukan Data Uang Kas</a></li>
               <li><a class="dropdown-item" href="#">Another action</a></li>
               <li>
                 <hr class="dropdown-divider" />
               </li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
+              <li><a class="<?php echo isCurrentDropdownPage('laporan-catatan'); ?>" href="print_Laporan-Catatan">Laporan Catatan</a></li>
+              <li><a class="<?php echo isCurrentDropdownPage('laporan-pemasukan-uang-kas'); ?>" href="print_Laporan-Pemasukan Data-Uang-Kas">Laporan Pemasukan Data Uang Kas</a></li>
             </ul>
           </li>
         </ul>
       </div>
+      <footer class="footer mt-auto py-3 bg-body-tertiary">
+        <div class="container">
+          <a aria-current="page" href="_sign-out" type="button" class="w-100 btn btn-outline-danger"><i class="fa-solid fa-right-from-bracket"></i> Sign out</a>
+        </div>
+      </footer>
     </div>
   </div>
 </nav>

@@ -30,7 +30,7 @@ echo "
 </head>
 <body>
   <h1>jgn masuk ke sini, balek kembali yaa ;3</h1>
-  <h2><a href='catatan'>kembali</a></h2>
+  <h2><a href='pemasukan-uang-kas'>kembali</a></h2>
 </body>
 </html>
 ";
@@ -38,10 +38,12 @@ echo "
 // add
 if (isset($_POST['button-add_save'])) {
   // save data baru
-  $catatan = $_POST['tambah-catatan'];
+  $no_nota = $_POST['tambah-no-nota'];
+  $bulan = $_POST['tambah-bulan'];
+  $nominal = $_POST['tambah-nominal'];
   
-  $simpan = mysqli_query($conn, "INSERT INTO catatan (id, date, catatan) 
-  VALUES (NULL, CURRENT_TIMESTAMP, '$catatan' )");
+  $simpan = mysqli_query($conn, "INSERT INTO tambah halaman pemasukan uang kas (id, date, no nota, bulan, nominal) 
+  VALUES (NULL, CURRENT_TIMESTAMP, '$no_nota', '$bulan', '$nominal')");
   
   if ($simpan) {
     $_SESSION['success'] = "Note has been added successfully.";

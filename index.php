@@ -28,7 +28,9 @@
     />
 
     <!--=============== TITLE ===============-->
-    <title>Home •</title>
+    <title>
+      <?php include 'templates/name_page.php'?>
+    </title>
 
     <!--=============== FONT ===============-->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
