@@ -8,5 +8,9 @@
     // Capitalize each word
     $capitalizedFilename = ucwords($filenameWithoutHyphen);
 
+    if ($filenameWithoutExtension == "index") {
+        $capitalizedFilename = "Home Page";
+    }
+    
     echo $capitalizedFilename;
 ?>

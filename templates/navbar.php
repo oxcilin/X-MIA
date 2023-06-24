@@ -11,7 +11,7 @@
     >
     <?php $domain = parse_url('http://' . $_SERVER['HTTP_HOST'], PHP_URL_HOST); ?>
       <img
-        src="http://<?php echo $domain; ?>/logo.png"
+        src="http://<?php echo $domain; ?>/db_oxa/logo.jpg"
         alt=""
         width="40"
         height="40"

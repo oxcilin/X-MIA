@@ -6,9 +6,12 @@
             $currentHour = (int) $date->format('G'); 
             // Define the greeting based on the current hour 
             if ($currentHour >= 0 && $currentHour < 12) {
-                $greeting = "GoodAfternoon"; } elseif ($currentHour >= 12 && $currentHour < 18) { 
-                    $greeting = "Good Evening"; } else { 
-                        $greeting = "Good Night"; }
+                $greeting = "Good Morning";
+            } elseif ($currentHour >= 12 && $currentHour < 18) {
+                $greeting = "Good Afternoon";
+            } else {
+                $greeting = "Good Evening";
+            }
         ?>
 
         <div id="running-text">

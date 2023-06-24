@@ -28,8 +28,8 @@ echo "
   </style>
 </head>
 <body>
-  <h1>jgn masuk ke sini, harusnya di index untuk login bukan login yaa ;3</h1>
-  <h2><a href='index'>kembali ke login</a></h2>
+  <h1>kembali skrg ya ;3</h1>
+  <h2><a href='login'>kembali ke login</a></h2>
 </body>
 </html>
 ";
@@ -69,7 +69,7 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
         }
     }
 
-    header("Location: index");
+    header("Location: login");
     exit();
 }
 ?>

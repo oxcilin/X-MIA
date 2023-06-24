@@ -13,7 +13,7 @@
 
     // Check if the page is "Index" and change the title to "Login"
     if ($filenameWithoutExtension == "index") {
-        $capitalizedFilename = "Login Page";
+        $capitalizedFilename = "Home Page";
     }
 
     // Concatenate the modified filename with the site name
